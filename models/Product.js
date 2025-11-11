@@ -14,7 +14,7 @@ const ProductSchema = new mongoose.Schema(
       default: 0,
     },
     description: {
-      type: Number,
+      type: String,
       required: [true, "Please provide product description"],
       maxlength: [1000, "Description cannot be more than 1000 characters"],
     },
@@ -36,7 +36,8 @@ const ProductSchema = new mongoose.Schema(
       },
     },
     colors: {
-      type: String,
+      type: [String],
+      default: ["#222"],
       required: true,
     },
     features: {
@@ -65,5 +66,4 @@ const ProductSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-
-module.exports = mongoose.model('Product', ProductSchema)
+module.exports = mongoose.model("Product", ProductSchema);
